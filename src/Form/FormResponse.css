@@ -1,0 +1,13 @@
+.container {
+    border: 2px solid #f8df00;
+    border-radius: 20px;
+    text-align: left;
+    color: white;
+    width: fit-content;
+    margin: auto;
+    padding: 0px 15px;
+}
+
+p, h3 {
+    color: #fff;
+}

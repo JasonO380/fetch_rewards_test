@@ -1,0 +1,45 @@
+h1, h4 {
+    text-align: center;
+    color: #fff;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: fit-content;
+    margin: auto;
+}
+
+input {
+    height: 30px;
+    font-size: 1rem;
+    border-radius: 10px;
+    border: 2px solid black;
+}
+
+label {
+    margin-top: 20px;
+    color: #fff;
+}
+
+select {
+    height: 30px;
+    font-size: 1rem;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+button {
+    margin: 10px 0px;
+    background-color: #ff1f06;
+    color: white;
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 10px;
+
+}
+
+.error {
+    color: #ff1f06;
+}
