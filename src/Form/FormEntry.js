@@ -31,15 +31,23 @@ let answers;
 const Form = () => {
     const [job, setJob] = useState([]);
     const [state, setState] = useState([]);
-    const [formResponse, setFormResponse] = useState([]);
     const [isValid, setIsValid] = useState(true);
     const [isFormSubmitted, setIsFormSubmitted] = useState(false);
+    const items = {
+        hidden: { opacity: 0 },
+        show: {
+            opacity: 1,
+            transition: {
+                delay: 0.3,
+            },
+        },
+    };
     const [inputState, dispatch] = useReducer(inputReducer, {
         name: "",
         email: "",
         password: "",
-        occupation: job,
-        state: state,
+        occupation: chosenJob,
+        state: chosenState,
     });
 
     const changeHandler = (event) => {
@@ -129,40 +137,86 @@ const Form = () => {
         <React.Fragment>
             <div>
                 <h1> Enter your info </h1>
-                <form onSubmit={postData}>
-                    <h4> Name </h4>
-                    <input
+                <motion.form
+                    key={inputState}
+                    initial={{ width: 0, height: 0 }}
+                    animate={{
+                        width: "fit-content",
+                        height: "fit-content",
+                        transition: {
+                            duration: 0.2,
+                        },
+                    }}
+                    exit={{
+                        x: window.innerWidth,
+                        transition: { duration: 0.2 },
+                    }}
+                    onSubmit={postData}
+                >
+                    <motion.h4 variants={items} initial="hidden" animate="show">
+                        Name
+                    </motion.h4>
+                    <motion.input
+                        variants={items}
+                        initial="hidden"
+                        animate="show"
                         label="Name"
                         value={inputState.name}
                         name="name"
                         placeholder="Enter your name"
                         onChange={changeHandler}
                     />
-                    <h4> Email </h4>
-                    <input
+                    <motion.h4 variants={items} initial="hidden" animate="show">
+                        Email
+                    </motion.h4>
+                    <motion.input
+                        variants={items}
+                        initial="hidden"
+                        animate="show"
                         label="Email"
                         value={inputState.email}
                         name="email"
                         placeholder="Enter your email"
                         onChange={changeHandler}
                     />
-                    <h4> Password </h4>
-                    <input
+                    <motion.h4 variants={items} initial="hidden" animate="show">
+                        Password
+                    </motion.h4>
+                    <motion.input
+                        variants={items}
+                        initial="hidden"
+                        animate="show"
                         label="Password"
                         value={inputState.password}
                         name="password"
                         placeholder="Enter your password"
                         onChange={changeHandler}
                     />
-                    <h4> Select Occupation </h4>{" "}
-                    <select onChange={handleSelect} name="occupation">
+                    <motion.h4 variants={items} initial="hidden" animate="show">
+                        Select Occupation
+                    </motion.h4>
+                    <motion.select
+                        variants={items}
+                        initial="hidden"
+                        animate="show"
+                        onChange={handleSelect}
+                        name="occupation"
+                    >
                         <option>-- choose one --</option>
                         {job.map((options) => {
                             return <option> {options} </option>;
                         })}
-                    </select>
-                    <h4> Select State </h4>
-                    <select onChange={handleSelect} name="state">
+                    </motion.select>
+                    <motion.h4 variants={items} initial="hidden" animate="show">
+                        Select State
+                    </motion.h4>
+                    <motion.select
+                        variants={items}
+                        initial="hidden"
+                        animate="show"
+                        onChange={handleSelect}
+                        name="state"
+                    >
                         <option>-- choose one --</option>
                         {state.map((s) => {
                             return (
@@ -171,9 +225,12 @@ const Form = () => {
                                 </option>
                             );
                         })}
-                    </select>
+                    </motion.select>
                     <div>
                         <motion.button
+                            variants={items}
+                            initial="hidden"
+                            animate="show"
                             whileTap={{
                                 scale: 0.8,
                             }}
@@ -185,7 +242,7 @@ const Form = () => {
                     {!isValid && (
                         <p className="error">Please fill out all fields</p>
                     )}
-                </form>
+                </motion.form>
             </div>
             {isFormSubmitted && <FormResponse items={answers} />}
         </React.Fragment>

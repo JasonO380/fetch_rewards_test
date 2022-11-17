@@ -5,7 +5,11 @@ body {
         "Helvetica Neue", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background: #2a2929;
+    background: linear-gradient(#2a006e, #2a2929 90%);
+}
+
+#root {
+    min-height: 100vh;
 }
 
 code {
