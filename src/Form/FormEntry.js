@@ -133,6 +133,7 @@ const Form = () => {
                     <h4> Name </h4>
                     <input
                         label="Name"
+                        value={inputState.name}
                         name="name"
                         placeholder="Enter your name"
                         onChange={changeHandler}
@@ -140,6 +141,7 @@ const Form = () => {
                     <h4> Email </h4>
                     <input
                         label="Email"
+                        value={inputState.email}
                         name="email"
                         placeholder="Enter your email"
                         onChange={changeHandler}
@@ -147,6 +149,7 @@ const Form = () => {
                     <h4> Password </h4>
                     <input
                         label="Password"
+                        value={inputState.password}
                         name="password"
                         placeholder="Enter your password"
                         onChange={changeHandler}
@@ -184,7 +187,7 @@ const Form = () => {
                     )}
                 </form>
             </div>
-            {/* {isFormSubmitted && <FormResponse items={answers} />} */}
+            {isFormSubmitted && <FormResponse items={answers} />}
         </React.Fragment>
     );
 };
