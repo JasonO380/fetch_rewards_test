@@ -153,12 +153,14 @@ const Form = () => {
                     />
                     <h4> Select Occupation </h4>{" "}
                     <select onChange={handleSelect} name="occupation">
+                        <option>-- choose one --</option>
                         {job.map((options) => {
                             return <option> {options} </option>;
                         })}
                     </select>
                     <h4> Select State </h4>
                     <select onChange={handleSelect} name="state">
+                        <option>-- choose one --</option>
                         {state.map((s) => {
                             return (
                                 <option>
@@ -182,7 +184,7 @@ const Form = () => {
                     )}
                 </form>
             </div>
-            {isFormSubmitted && <FormResponse items={answers} />}
+            {/* {isFormSubmitted && <FormResponse items={answers} />} */}
         </React.Fragment>
     );
 };
