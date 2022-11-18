@@ -16,6 +16,8 @@ const inputReducer = (state, action) => {
                 name: "",
                 email: "",
                 password: "",
+                occupation:"--choose one--",
+                state:""
             };
         default:
             return state;
@@ -66,11 +68,9 @@ const Form = () => {
         console.log("here");
         if (event.target.name === "occupation") {
             chosenJob = event.target.value;
-            console.log(chosenJob);
         }
         if (event.target.name === "state") {
             chosenState = event.target.value;
-            console.log(chosenState);
         }
     };
 
@@ -112,6 +112,7 @@ const Form = () => {
             type: "CLEAR_FORM",
         });
         setIsFormSubmitted(true);
+        setIsValid(true);
     };
 
     useEffect(() => {
@@ -146,10 +147,6 @@ const Form = () => {
                         transition: {
                             duration: 0.2,
                         },
-                    }}
-                    exit={{
-                        x: window.innerWidth,
-                        transition: { duration: 0.2 },
                     }}
                     onSubmit={postData}
                 >
@@ -199,6 +196,7 @@ const Form = () => {
                         variants={items}
                         initial="hidden"
                         animate="show"
+                        value={chosenJob}
                         onChange={handleSelect}
                         name="occupation"
                     >
@@ -214,6 +212,7 @@ const Form = () => {
                         variants={items}
                         initial="hidden"
                         animate="show"
+                        value={chosenState}
                         onChange={handleSelect}
                         name="state"
                     >
