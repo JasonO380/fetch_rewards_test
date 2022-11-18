@@ -136,7 +136,7 @@ const Form = () => {
 
     return (
         <React.Fragment>
-            <div>
+            <div className="form_container">
                 <h1> Enter your info </h1>
                 <motion.form
                     key={inputState}

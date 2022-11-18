@@ -3,6 +3,10 @@ h1, h4 {
     color: #fff;
 }
 
+.form_container {
+    margin-bottom: 10px;
+}
+
 form {
     display: flex;
     flex-direction: column;
